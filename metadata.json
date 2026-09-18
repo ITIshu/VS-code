@@ -1,0 +1,6 @@
+{
+  "name": "VS Code Web Editor",
+  "description": "Next-generation cloud code studio featuring multi-tab editing, AI Copilot, interactive Live Canvas preview, integrated REST client, Code Radar metrics, extensible plugins, and signature themes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

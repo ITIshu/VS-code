@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VS Code Web Editor</title>
+    <meta name="description" content="A feature-rich VS Code like web editor featuring syntax highlighting, multi-tab support, customizable VS Code themes, file explorer, integrated terminal output, and a robust plugin system." />
+    <meta property="og:title" content="VS Code Web Editor" />
+    <meta property="og:description" content="A feature-rich VS Code like web editor featuring syntax highlighting, multi-tab support, customizable VS Code themes, file explorer, integrated terminal output, and a robust plugin system." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23007acc'><path d='M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.27a1 1 0 0 0-.008 1.442L4.62 12 .319 15.288a1 1 0 0 0 .008 1.442l1.322 1.212a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zM18.5 18.257L9.584 12 18.5 5.743v12.514z'/></svg>" />
+  </head>
+  <body class="bg-[#181818] text-[#cccccc] antialiased overflow-hidden h-screen w-screen">
+    <div id="root" class="h-full w-full"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Automatically clean up any stale Vite error overlays if present
+      if (typeof window !== 'undefined') {
+        const cleanupOverlays = () => {
+          document.querySelectorAll('vite-error-overlay').forEach(el => el.remove());
+        };
+        cleanupOverlays();
+        window.addEventListener('load', cleanupOverlays);
+      }
+    </script>
+  </body>
+</html>
+
