@@ -369,15 +369,36 @@ export default function App() {
   const handleImportFile = (file: File) => {
     const reader = new FileReader();
     reader.onload = (e) => {
-      const content = e.target?.result as string;
-      handleCreateFile(null, file.name);
-      setTimeout(() => {
-        const found = getAllFiles(files).find((f) => f.name === file.name);
-        if (found) {
-          handleContentChange(content);
-        }
-      }, 50);
+      const content = e.target?.result;
+      if (typeof content !== 'string') {
+        showNotification(`Could not read ${file.name}`, 'error');
+        return;
+      }
+
+      const id = 'file-' + Math.random().toString(36).substring(2, 9);
+      const language = detectLanguage(file.name);
+      const path = '/' + file.name;
+      const importedFile: FileNode = {
+        id,
+        name: file.name,
+        path,
+        type: 'file',
+        language,
+        content,
+        isDirty: false,
+      };
+
+      setFiles((prev) => addNodeToTree(prev, null, importedFile));
+      setActiveFileId(id);
+      setDiffViewFileId(null);
+      setTabs((prev) =>
+        prev.some((tab) => tab.fileId === id)
+          ? prev
+          : [...prev, { fileId: id, path, title: file.name, language, isDirty: false }]
+      );
+      showNotification(`Imported ${file.name}`, 'info');
     };
+    reader.onerror = () => showNotification(`Could not read ${file.name}`, 'error');
     reader.readAsText(file);
   };
 
