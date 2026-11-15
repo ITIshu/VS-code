@@ -12,7 +12,6 @@ The code editor
 - [Prerequisites](#prerequisites)
 - [Install](#install)
 - [Development](#development)
-- [Testing](#testing)
 - [Live demo](#live-demo)
 - [Site checks](#site-checks)
 - [Contributing](#contributing)
@@ -55,25 +54,23 @@ VS-code is a code editor. This repository contains the source code for the proje
 
 ## Development
 
-- Build (if applicable):
+- Start the development server:
+
+  npm run dev
+
+- Create a production build:
 
   npm run build
 
-- Start the development server / run the app:
+- Preview the production build locally:
 
-  npm start
+  npm run preview
 
-- Lint:
+- Check TypeScript types:
 
   npm run lint
 
-Check package.json for the exact scripts the project provides.
-
-## Testing
-
-Run tests with:
-
-npm test
+These commands match the scripts defined in `package.json`.
 
 ## Live demo
 
