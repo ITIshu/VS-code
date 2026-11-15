@@ -1,7 +1,7 @@
 import { FileNode } from '../types';
 
 export const detectLanguage = (filename: string): string => {
-  const ext = filename.split('.').pop()?.toLowerCase();
+  const ext = filename.includes('.') ? filename.split('.').pop()?.toLowerCase() : undefined;
   switch (ext) {
     case 'ts':
       return 'typescript';
